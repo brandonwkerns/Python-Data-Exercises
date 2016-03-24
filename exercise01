@@ -3,7 +3,7 @@ Exercise 1
 The objectives of this exercise are to:
 -Set up the linux environment for python/ipython.
 -Read in netcdf surface meteorological data.
--Plot a time series or meteogram of the surface data.
+-Plot a multi panel time series or meteogram of the surface data.
 
 
 1) Set your environment to work with the Python setup.
