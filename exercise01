@@ -1,0 +1,47 @@
+Exercise 1
+
+The objectives of this exercise are to:
+-Set up the linux environment for python/ipython.
+-Read in netcdf surface meteorological data.
+-Plot a time series or meteogram of the surface data.
+
+
+1) Set your environment to work with the Python setup.
+
+When you log in to a desktop machine or ssh in to the manta server, the special file .cshrc or .bashrc gets run, which sets up your user environment.
+
+If you are runing the csh or tcsh shell, .cshrc gets run. If you are using the bash shell, .bashrc gets run. To tell which script you are using, log in and use the following command: echo $SHELL
+
+Create or edit the appropriate file under your home directory. 
+For .cshrc, add this: 
+setenv PATH "/home/python/anaconda2/envs/meteo/bin:$PATH"
+For .bashrc, add this:
+export PATH=/home/python/anaconda2/envs/meteo/bin:$PATH
+(DO NOT add spaces around the = sign)
+
+After you modify the file, log out and log back in. To check whether it worked, use the command "which python," you should get:
+/home/python/anaconda2/envs/meteo/bin/python.
+This version of Python has all the Python modules for dealing with meteorological data.
+
+
+2) Set up directories for the exercise.
+
+For these exercises, work under /home/disk/manta12/[your_user_name]
+Create a directory there called ex01, and enter it. Work there for this exercise.
+
+cd /home/disk/manta12/[your_user_name]
+mkdir ex01
+cd ex01
+
+
+3) Use the text editor to modify the Python script below to plot sea level pressure at Gan Island in the central Indian Ocean.
+Anaconda comes with a handy inteactive graphical environment called "spyder." To open it:
+spyder & 
+(The & at the end keeps the shell available for future commands).
+
+
+
+
+
+
+
