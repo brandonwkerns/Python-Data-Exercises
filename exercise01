@@ -34,10 +34,24 @@ mkdir ex01
 cd ex01
 
 
-3) Use the text editor to modify the Python script below to plot sea level pressure at Gan Island in the central Indian Ocean.
+3) Modify the Python script below to plot the surface data for November 24 2011 at Gan Island in the central Indian Ocean.
+The data are in the file:
+/home/disk/manta8/data/field_experiments/dynamo/surfaceobs/gan/ganmetM1.b1.20111124.000000.cdf
+you can see which variables are in the file using ncdump:
+ncdump -h /home/disk/manta8/data/field_experiments/dynamo/surfaceobs/gan/ganmetM1.b1.20111124.000000.cdf
+and preview it with ncview:
+ncview /home/disk/manta8/data/field_experiments/dynamo/surfaceobs/gan/ganmetM1.b1.20111124.000000.cdf
+
 Anaconda comes with a handy inteactive graphical environment called "spyder." To open it:
 spyder & 
 (The & at the end keeps the shell available for future commands).
+
+The sample script plots the temperature. Add the dewpoint temperature in blue. 
+-->You need to calculate it from the temperature and the RH.
+-->Use the plt.hold function to plot two curves on the same graph.
+
+4) Expand the script from 3) to have four panels: temperature and dewpoint, pressure, wind speed, rainfall.
+
 
 
 
