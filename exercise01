@@ -67,7 +67,6 @@ time_h = time / 3600.0  # seconds --> Hours (0 - 24).
 base_time = nc_fid.variables['base_time'][:]
 temperature = np.array(nc_fid.variables['temp_mean'][:])
 rh = np.array(nc_fid.variables['rh_mean'][:])
-pressure = 1e3 * np.array(nc_fid.variables['atmos_pressure'][:]) #kPa --> Pa
 
 ## Calculating dewpoint (Bolton, 1980)
 
@@ -80,9 +79,20 @@ plt.hold
 -For the dewpoint, it is easiest to use the Bolton (1980) formulas. Code the formula in the "calculating dewpoint" section.
 -The "plt.hold" command makes the next plot be in 
 
-5) Now put the section where you calculate the dewpoint in a function, and call the function in the main script instead.
+5) Put the section where you calculate the dewpoint in a function, and call the function in the main script instead.
 
-6) Finally, make the graph look nice. Use the "plt" object methods to control the plot limits, labels, ect.
+6) Now make the plot have three panels. First panel is the temperature/dewpoint plot from above. 
+Second panel is wind speed. Third is surface pressure. You need to add code to read in these variables.
+Below is an example with two sub plots:
+
+# Two subplots, the axes array is 1-d
+f, axarr = plt.subplots(2, sharex=True)
+axarr[0].plot(x, y)
+axarr[0].set_title('Sharing X axis')
+axarr[1].scatter(x, y)
+
+
+7) Finally, make the graph look nice. Use the matplotlib "plt" object methods to add some labels.
 
 
 
