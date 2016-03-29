@@ -21,7 +21,7 @@ export PATH=/home/python/anaconda2/envs/meteo/bin:$PATH
 
 After you modify the file, log out and log back in. To check whether it worked, use the command "which python," you should get:
 /home/python/anaconda2/envs/meteo/bin/python.
-This version of Python has all the Python modules for dealing with meteorological data.
+This version/setup of Python has all the Python modules for dealing with meteorological data.
 
 
 2) Set up directories for the exercise.
@@ -93,6 +93,7 @@ axarr[1].scatter(x, y)
 
 
 7) Finally, make the graph look nice. Use the matplotlib "plt" object methods to add some labels.
+You can look these up by Google searching for "matplotlib pyplot labels."
 
 
 
