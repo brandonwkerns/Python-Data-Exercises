@@ -34,7 +34,7 @@ mkdir ex01
 cd ex01
 
 
-3) Modify the Python script below to plot the surface data for November 24 2011 at Gan Island in the central Indian Ocean.
+3) Modify the sample Python script below to plot the surface data for November 24 2011 at Gan Island in the central Indian Ocean.
 The data are in the file:
 /home/disk/manta8/data/field_experiments/dynamo/surfaceobs/gan/ganmetM1.b1.20111124.000000.cdf
 you can see which variables are in the file using ncdump:
@@ -46,16 +46,43 @@ Anaconda comes with a handy inteactive graphical environment called "spyder." To
 spyder & 
 (The & at the end keeps the shell available for future commands).
 
-The sample script plots the temperature. Add the dewpoint temperature in blue. 
--->You need to calculate it from the temperature and the RH.
--->Use the plt.hold function to plot two curves on the same graph.
+Sample Python script:
 
-4) Expand the script from 3) to have four panels: temperature and dewpoint, pressure, wind speed, rainfall.
-
-
-
+import datetime as dt  # Python standard library datetime  module
+import numpy as np
+import netCDF4 as nc
+import matplotlib.pyplot as plt
 
 
+## Constants
+dataFile = '/home/disk/manta8/data/field_experiments/dynamo/surfaceobs/gan/ganmetM1.b1.20111124.000000.cdf'
+L=2.453e6
+Rv=461.0 
+
+
+## Reading
+nc_fid = nc.Dataset(dataFile,'r')
+time = nc_fid.variables['time'][:] #Seconds since midnight
+time_h = time / 3600.0  # seconds --> Hours (0 - 24).
+base_time = nc_fid.variables['base_time'][:]
+temperature = np.array(nc_fid.variables['temp_mean'][:])
+rh = np.array(nc_fid.variables['rh_mean'][:])
+pressure = 1e3 * np.array(nc_fid.variables['atmos_pressure'][:]) #kPa --> Pa
+
+## Calculating dewpoint (Bolton, 1980)
+
+## Plotting
+plt.plot(replace, this, ect...) 
+plt.hold
+
+
+4) Expand your script from 3) to have the temperature and dewpoint on a single graph.
+-For the dewpoint, it is easiest to use the Bolton (1980) formulas. Code the formula in the "calculating dewpoint" section.
+-The "plt.hold" command makes the next plot be in 
+
+5) Now put the section where you calculate the dewpoint in a function, and call the function in the main script instead.
+
+6) Finally, make the graph look nice. Use the "plt" object methods to control the plot limits, labels, ect.
 
 
 
